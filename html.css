@@ -1,0 +1,58 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Home page styles */
+#homePage {
+  padding: 20px;
+}
+
+/* Results page styles */
+#resultsPage {
+  padding: 20px;
+}
+
+/* Watched page styles */
+#watchedPage {
+  padding: 20px;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 767px) {
+  /* Mobile devices */
+  #homePage, #resultsPage, #watchedPage {
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet devices */
+  #homePage, #resultsPage, #watchedPage {
+    padding: 15px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* Desktop devices */
+  #homePage, #resultsPage, #watchedPage {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+  }
+}
