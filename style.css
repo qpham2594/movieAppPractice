@@ -7,21 +7,35 @@ body {
 
 h1 {
   text-align: center;
+  font-size: 64px;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 10px;
-}
 
 /* Home page styles */
-#homePage {
+.homePage {
   padding: 20px;
+  margin: 20px auto;
+  max-width: 900px;
 }
+
+button {
+  padding: 10px 30px;
+  background-color: yellow;
+  border: solid 2px blue;
+  box-shadow: 3px 5px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+form {
+  text-align: center;
+}
+
+.numberOfUser {
+  font-size: 20px;
+}
+
 
 /* Results page styles */
 #resultsPage {
