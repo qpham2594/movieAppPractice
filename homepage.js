@@ -4,6 +4,7 @@ const movieAPI = document.querySelector('.movieList')
 const numberOfUser = document.getElementsByClassName('numberOfUser')
 const generateBtn = document.querySelector('.generatebtn')
 const { classList: dropDownMenuClassList} = document.getElementById("dropDownMenu")
+let usersVoted = 0
 
 
 generateBtn.addEventListener('click',displayMovies)
@@ -33,45 +34,61 @@ async function shuffleMovies() {
 
 async function displayMovies() {
   try {
-  const movieListDiv = document.querySelector('.movieList');
- 
-
-  const movies = await shuffleMovies()
-  console.log(movies)
-
-  shuffleMovies().then((movies) => {
-    movies.forEach((movie) => {
-      const {poster_path,title,release_date,overview} = movie
-
-      const moviePoster = document.createElement('img')
-      const posterURL = `https://image.tmdb.org/t/p/w500${poster_path}`
-      moviePoster.src = posterURL
-      movieListDiv.appendChild(moviePoster)
-
-
-      const movieTitle = document.createElement('h3')
-      movieTitle.textContent = title
-      movieListDiv.appendChild(movieTitle)
+    generateBtn.disabled = true
+    const movieListDiv = document.querySelector('.movieList');
   
-      const movieReleaseDate = document.createElement('p')
-      movieReleaseDate.textContent = release_date
-      movieListDiv.appendChild(movieReleaseDate)
-  
-      const movieOverview = document.createElement('p')
-      movieOverview.textContent = overview
-      movieListDiv.appendChild(movieOverview)  
+
+    const movies = await shuffleMovies()
+    console.log(movies)
+    localStorage.setItem("randomMovies", JSON.stringify(movies))
+
+    shuffleMovies().then((movies) => {
+      movies.forEach((movie) => {
+        const {poster_path,title,release_date,overview} = movie
+
+        const moviePoster = document.createElement('img')
+        moviePoster.classList.add('moviePoster')
+        const posterURL = `https://image.tmdb.org/t/p/w500${poster_path}`
+        moviePoster.src = posterURL
+        movieListDiv.appendChild(moviePoster)
+
+
+        const movieTitle = document.createElement('h3')
+        movieTitle.textContent = title
+        movieListDiv.appendChild(movieTitle)
+    
+        const movieReleaseDate = document.createElement('p')
+        movieReleaseDate.textContent = release_date
+        movieListDiv.appendChild(movieReleaseDate)
+    
+        const movieOverview = document.createElement('p')
+        movieOverview.textContent = overview
+        movieListDiv.appendChild(movieOverview)  
+      })
+      localStorage.setItem("randomMovies", JSON.stringify(movies));
     })
-  })
-} catch (error) {
-  console.error ("unable to get data", error)
-}
-}
+    usersVoted++;
+    usersVoted++;
+    usersVoted++;
 
+    if (usersVoted === parseInt(localStorage.getItem("numberOfUsers"))) {
+      const getResultButton = document.createElement("button");
+      getResultButton.innerHTML = "Get Result";
+      getResultButton.addEventListener("click", () => {
+        window.location.href = "results.html"
+      })
+      movieListDiv.appendChild(getResultButton)
+    }
+} catch (error) {
+    console.error ("unable to get data", error)
+  }
+}
 
 const toggleDropDown = () => dropDownMenuClassList.toggle("show");
 myButton.addEventListener("click", toggleDropDown);
 
 const showButtons = num => {
+  
    
   userSet.innerHTML = ""; // Clear any previously displayed buttons
 
@@ -80,8 +97,10 @@ const showButtons = num => {
     userButton.classList.add("userButton");
     userButton.textContent = `User ${i}`;
     userButton.href = `voting.html?user=${i}`;
+    userButton.target = "_blank";
     userSet.appendChild(userButton);
   }
+  localStorage.setItem("numberOfUsers", num);
 }
 
 const dropdowns = document.getElementsByClassName("dropdown-content");
