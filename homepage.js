@@ -1,16 +1,14 @@
-// homepage movie API
+const userSet = document.querySelector(".userSet");
+const myButton = document.getElementById("myButton");
 
-const movieAPI = document.getElementById('movieList')
-const numberOfUser = document.getElementsByClassName('numberOfUser')
+const { classList: dropDownMenuClassList} = document.getElementById("dropDownMenu")
 
-function myFunction() {
-    document.getElementById("dropDownMenu").classList.toggle("show");
-}
 
-document.getElementById("myButton").addEventListener("click", myFunction);
+const toggleDropDown = () => dropDownMenuClassList.toggle("show");
+myButton.addEventListener("click", toggleDropDown);
 
-function showButtons(num) {
-    const userSet = document.querySelector(".userSet");
+const showButtons = num => {
+   
     userSet.innerHTML = " ";
 
     for (let i = 1; i <= num; i++) {
@@ -18,21 +16,19 @@ function showButtons(num) {
         userButton.classList.add("userButton")
         userButton.textContent = `User ${i}`;
         userButton.href = `voting.html`;
-    
         userSet.appendChild(userButton)
     }
 }
 
-const myBtn = document.getElementById("myButton")
-window.onclick = ("click", function (event) {
+const dropdowns = document.getElementsByClassName("dropdown-content");
+window.addEventListener("click", (event) => {
     if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show')
-            }
+      const dropdowns = document.querySelectorAll(".dropdown-content");
+      dropdowns.forEach((openDropdown) => {
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
         }
-    } 
-}); 
+      });
+    }
+  });
+  

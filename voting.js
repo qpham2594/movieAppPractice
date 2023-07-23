@@ -1,3 +1,6 @@
+const movieAPI = document.getElementById('movieList')
+const numberOfUser = document.getElementsByClassName('numberOfUser')
+
 
 /*
 
