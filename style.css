@@ -1,8 +1,9 @@
 /* General styles */
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
 }
 
 h1 {
@@ -17,19 +18,15 @@ h2 {
 
 
 /* Home page styles */
-.homePage {
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 1200px;
-}
 
-.dropbtn {
+.generatebtn, .dropbtn {
   background-color: brown;
   color: white;
   padding: 15px;
   font-size: 20px;
   border: none;
   cursor:pointer;
+  box-shadow: 3px 4px black;
 }
 
 .dropbtn:hover, .dropbtn:focus {
@@ -92,6 +89,23 @@ h2 {
 #resultsPage {
   padding: 20px;
 }
+
+.votingbutton {
+  background-color: brown;
+  color: white;
+  padding: 15px;
+  font-size: 20px;
+  border: none;
+  cursor:pointer;
+  display: none;
+}
+
+
+
+
+
+
+
 
 /* Watched page styles */
 #watchedPage {
