@@ -12,25 +12,31 @@
     <h1> We Give You the Options, You Vote On the Movies!</h1>
     <h2> Choosing a movie for movie night can be hard, but we got you covered! 
       <br>
-      We will give you the options, and you get to choose! Select the number of users available to vote and the rest is pretty self-explanatory.
+      We will give you the options, and you get to choose!<br> <br> Select the number of users available to vote and the rest is pretty self-explanatory.
     </h2>
     <br>
     <br>
-    <div id="movieList">
-      <!-- Recommended movies will be populated dynamically using JavaScript -->
-      <span>
-        <div>
-          <form>
-            <input name = "search" type = "text" placeholder = " "/>
-            <label class="numberOfUser">
-              Enter Number of Users (number only)
-            </label>
-            <button class="button"> Enter </button>
-          </form>
+  
+    <div class="dropdown">
+      <button
+      id="myButton" class = "dropbtn"> Select Number of Users </button>
+        <div id = "dropDownMenu" class="dropdown-content">
+          <a href="#" onclick="showButtons(1)"> 1 </a>
+          <a href="#" onclick="showButtons(2)"> 2 </a>
+          <a href="#" onclick="showButtons(3)"> 3 </a>
+          <a href="#" onclick="showButtons(4)"> 4 </a>
+          <a href="#" onclick="showButtons(5)"> 5 </a>
+          <a href="#" onclick="showButtons(6)"> 6 </a>
+          <a href="#" onclick="showButtons(7)"> 7 </a>
+          <a href="#" onclick="showButtons(8)"> 8 </a>
+          <a href="#" onclick="showButtons(9)"> 9 </a>
+          <a href="#" onclick="showButtons(10)"> 10 </a>
         </div>
-      </span>
     </div>
+    <br> <br>
+    <div class="userSet"></div>
+   
   </div>
- 
+  <script src="homepage.js"></script>
 </body>
 </html>
